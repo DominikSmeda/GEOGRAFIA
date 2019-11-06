@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 
     },
     text: {
-        fontWeight: "500",
+        fontWeight: "600",
         textAlign: 'center',
         fontSize: 12,
         textTransform: 'uppercase'

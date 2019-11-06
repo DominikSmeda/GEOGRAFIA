@@ -21,7 +21,7 @@ class Main extends Component {
     }
     componentWillMount = async () => {
         await Font.loadAsync({
-            'myfont': require('./Pacifico.ttf'),
+            'myfont': require('./myfont.ttf'),
         });
         this.setState({ fontloaded: true })
         this.setPermissions()
@@ -45,7 +45,7 @@ class Main extends Component {
                             <ActivityIndicator size="large" color="#0000ff" />
                             :
                             <View>
-                                <Text style={[styles.text, { fontFamily: 'myfont', fontSize: 60, color: 'white' }]}>GeoMap App</Text>
+                                <Text style={[styles.text, { fontFamily: 'myfont', fontSize: 50, color: 'white' }]}>GeoMap App</Text>
                                 <Text style={styles.text}>find and save your position</Text>
                             </View>
                     }
@@ -66,18 +66,21 @@ const styles = {
         flex: 1
     },
     text: {
-        fontSize: 30,
-        color: 'white'
+        fontSize: 15,
+        color: 'white',
+        textAlign: "center"
     },
     header: {
         flex: 3,
         flexDirection: "column",
         justifyContent: "center",
         alignItems: 'center',
-        backgroundColor: 'darkblue'
+        backgroundColor: 'steelblue'
     },
     main: {
-        flex: 3
+        flex: 3,
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 }
 export default Main

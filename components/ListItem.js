@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import zdj from './user.png'
+import zdj from './images.png'
 import MyButton from './MyButton';
 import { Switch } from 'react-native-gesture-handler';
 
@@ -15,6 +15,7 @@ class ListItem extends Component {
     componentWillReceiveProps(nextProps) {
 
         this.setState({ switch: nextProps.switch })
+        this.props.map.marked = nextProps.switch;
 
     }
 
@@ -28,9 +29,9 @@ class ListItem extends Component {
                     source={zdj}
                 />
                 <View style={styles.map}>
-                    <Text style={{ fontWeight: '500' }}>{this.props.map.timestamp}</Text>
-                    <Text>{this.props.map.latitude}</Text>
-                    <Text>{this.props.map.longitude}</Text>
+                    <Text style={{ fontWeight: '500' }}>timestamp:{this.props.map.timestamp}</Text>
+                    <Text>latitude: {this.props.map.latitude}</Text>
+                    <Text>longitude:{this.props.map.longitude}</Text>
                 </View>
                 <Switch value={this.state.switch} onValueChange={(newVal) => {
                     this.setState({ switch: newVal })

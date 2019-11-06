@@ -12,7 +12,7 @@ class List extends Component {
         // header: null,
         title: "Zapis pozycji",
         headerStyle: {
-            backgroundColor: "blue",
+            backgroundColor: "steelblue",
         },
         headerTitleStyle: {
             color: "#ffffff"
@@ -68,14 +68,12 @@ class List extends Component {
 
         AsyncStorage.multiRemove(keys, err => {
             if (err) {
-                alert("Lista jest pusta")
             } else {
                 this.getAllData();
             }
         })
     }
     render() {
-        console.log('render list');
 
         return (
             <View style={styles.container}>
@@ -94,7 +92,11 @@ class List extends Component {
                             }
 
                         }
-                        console.log(markers);
+
+                        if (!markers.length) {
+                            return alert('Zaznacz pozycje')
+                        }
+
 
                         this.props.navigation.navigate("Map", { markers: markers })
 
@@ -125,7 +127,7 @@ class List extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 10
+        padding: 5
     },
     buttons: {
         flex: 1,
@@ -135,7 +137,7 @@ const styles = StyleSheet.create({
     },
 
     savedMaps: {
-        flex: 8,
+        flex: 10,
         flexDirection: 'column'
     }
 

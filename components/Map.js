@@ -3,6 +3,17 @@ import { View, Text } from 'react-native';
 import MapView from 'react-native-maps';
 
 class Map extends Component {
+
+    static navigationOptions = {
+        title: "Lokalizacja na mapie",
+        headerStyle: {
+            backgroundColor: "steelblue",
+        },
+        headerTitleStyle: {
+            color: "#ffffff"
+        }
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -10,7 +21,6 @@ class Map extends Component {
     }
 
     render() {
-        console.log(this.props.navigation.state.params);
 
         let markers = this.props.navigation.state.params.markers.map((elem, i) => {
 
